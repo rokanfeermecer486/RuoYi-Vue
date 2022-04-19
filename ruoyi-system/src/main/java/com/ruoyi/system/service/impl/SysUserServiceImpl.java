@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Validator;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,19 +42,19 @@ public class SysUserServiceImpl implements ISysUserService
 {
     private static final Logger log = LoggerFactory.getLogger(SysUserServiceImpl.class);
 
-    @Autowired
+    @Mapper
     private SysUserMapper userMapper;
 
-    @Autowired
+    @Mapper
     private SysRoleMapper roleMapper;
 
-    @Autowired
+    @Mapper
     private SysPostMapper postMapper;
 
-    @Autowired
+    @Mapper
     private SysUserRoleMapper userRoleMapper;
 
-    @Autowired
+    @Mapper
     private SysUserPostMapper userPostMapper;
 
     @Autowired
@@ -520,7 +522,7 @@ public class SysUserServiceImpl implements ISysUserService
                 if (StringUtils.isNull(u))
                 {
                     BeanValidators.validateWithException(validator, user);
-                    user.setPassword(SecurityUtils.encryptPassword(password));
+                    user.setPassword(SecurityUtils.encryptPassword(user.getPassword()== null ? password : user.getPassword()));
                     user.setCreateBy(operName);
                     this.insertUser(user);
                     successNum++;

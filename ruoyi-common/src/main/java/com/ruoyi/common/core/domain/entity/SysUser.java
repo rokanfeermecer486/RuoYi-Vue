@@ -52,9 +52,11 @@ public class SysUser extends BaseEntity
     private String sex;
 
     /** 用户头像 */
+    @Excel(name = "用户头像", type = Type.EXPORT)
     private String avatar;
 
     /** 密码 */
+    @Excel(name = "用户密码", type = Type.IMPORT)
     private String password;
 
     /** 盐加密 */
