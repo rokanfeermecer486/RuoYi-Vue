@@ -42,19 +42,19 @@ public class SysUserServiceImpl implements ISysUserService
 {
     private static final Logger log = LoggerFactory.getLogger(SysUserServiceImpl.class);
 
-    @Mapper
+    @Autowired
     private SysUserMapper userMapper;
 
-    @Mapper
+    @Autowired
     private SysRoleMapper roleMapper;
 
-    @Mapper
+    @Autowired
     private SysPostMapper postMapper;
 
-    @Mapper
+    @Autowired
     private SysUserRoleMapper userRoleMapper;
 
-    @Mapper
+    @Autowired
     private SysUserPostMapper userPostMapper;
 
     @Autowired

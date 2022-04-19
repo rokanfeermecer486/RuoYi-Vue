@@ -2,12 +2,15 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.SysPost;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 岗位信息 数据层
  * 
  * @author ruoyi
  */
+@Mapper
 public interface SysPostMapper
 {
     /**

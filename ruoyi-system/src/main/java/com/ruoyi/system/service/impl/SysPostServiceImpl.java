@@ -21,10 +21,10 @@ import com.ruoyi.system.service.ISysPostService;
 @Service
 public class SysPostServiceImpl implements ISysPostService
 {
-    @Mapper
+    @Autowired
     private SysPostMapper postMapper;
 
-    @Mapper
+    @Autowired
     private SysUserPostMapper userPostMapper;
 
     /**
